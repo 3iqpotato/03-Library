@@ -1,6 +1,13 @@
+// export const settings = {
+//     host: '',
+// };
+
 export const settings = {
-    host: '',
+    host: window.location.hostname === 'localhost'
+        ? 'http://localhost:3030'
+        : 'https://zero3-library-backend-zmai.onrender.com'
 };
+
 
 async function request(url, options) {
     try {

@@ -1,7 +1,12 @@
+// import * as api from './api.js';
+
+// const host = 'http://localhost:3030'
+// api.settings.host = 'http://localhost:3030';
+
 import * as api from './api.js';
 
-const host = 'http://localhost:3030'
-api.settings.host = 'http://localhost:3030';
+console.log(api.settings.host); // ще е локално или Render, според средата
+
 
 export const login = api.login;
 export const register = api.register;
