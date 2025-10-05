@@ -1,0 +1,33 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+
+    - run: npm ci
+    - run: npm run build --if-present
+
+    - name: Start backend and frontend
+      run: |
+        npm run server &
+        npm run start &
+        npx wait-on http://localhost:3000
+
+    - name: Run tests
+      run: npm test
+
