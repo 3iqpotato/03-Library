@@ -4,8 +4,8 @@
 // api.settings.host = 'http://localhost:3030';
 
 import * as api from './api.js';
-
-console.log(api.settings.host); // ще е локално или Render, според средата
+const host = api.settings.host;
+// console.log(api.settings.host); // ще е локално или Render, според средата
 
 
 export const login = api.login;
